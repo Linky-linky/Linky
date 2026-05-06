@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linky🔗 | Premium Web Studio</title>
+<meta name="description" content="Linky — استوديو احترافي لتصميم وتطوير المواقع الحديثة والسريعة.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070b14;
+  --bg-2:#0d1424;
+  --card:#111a2e;
+  --card-2:#0f1729;
+  --border:rgba(255,255,255,0.08);
+  --text:#e6ebf5;
+  --muted:#8a94a7;
+  --primary:#60a5fa;
+  --primary-2:#3b82f6;
+  --accent:#22d3ee;
+  --grad:linear-gradient(135deg,#60a5fa 0%,#22d3ee 100%);
+  --shadow:0 20px 60px -20px rgba(96,165,250,.35);
+  --radius:16px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter','Cairo',sans-serif;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse at top left,rgba(96,165,250,.12),transparent 50%),
+    radial-gradient(ellipse at bottom right,rgba(34,211,238,.08),transparent 50%),
+    var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+  min-height:100vh;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+.container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  background:rgba(7,11,20,0.7);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;max-width:1200px;margin:0 auto;
+}
+.logo{font-size:20px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.nav-links{display:flex;gap:8px;}
+.nav-links a{
+  color:var(--muted);font-size:14px;font-weight:500;
+  padding:8px 14px;border-radius:8px;transition:.25s;
+}
+.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.05);}
+.menu-btn{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer;}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:120px 0 60px;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;border-radius:999px;
+  background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.25);
+  color:var(--primary);font-size:13px;font-weight:500;margin-bottom:20px;
+}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e;}
+.hero h1{
+  font-size:clamp(34px,5vw,60px);font-weight:800;line-height:1.1;
+  letter-spacing:-.02em;margin-bottom:18px;
+}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:520px;margin-bottom:28px;}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 26px;border-radius:12px;font-weight:600;font-size:15px;
+  transition:.25s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--grad);color:#04111f;box-shadow:var(--shadow);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 25px 70px -15px rgba(96,165,250,.55);}
+.btn-ghost{background:rgba(255,255,255,.04);color:var(--text);border:1px solid var(--border);}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(96,165,250,.4);}
+
+.hero-visual{position:relative;display:flex;justify-content:center;}
+.hero-visual::before{
+  content:"";position:absolute;inset:-20px;border-radius:30px;
+  background:var(--grad);filter:blur(60px);opacity:.35;z-index:-1;
+}
+.hero-visual img{
+  width:100%;max-width:420px;border-radius:24px;
+  border:1px solid var(--border);
+  animation:float 5s ease-in-out infinite;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.6);
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px;max-width:480px;}
+.stat{padding:14px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--border);}
+.stat b{display:block;font-size:22px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.stat span{font-size:12px;color:var(--muted);}
+
+/* SECTIONS */
+section{padding:90px 0;}
+.section-head{text-align:center;max-width:680px;margin:0 auto 50px;}
+.eyebrow{color:var(--primary);font-size:13px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;}
+.section-head h2{font-size:clamp(28px,3.5vw,42px);font-weight:800;letter-spacing:-.02em;margin-bottom:12px;}
+.section-head p{color:var(--muted);font-size:16px;}
+
+/* ABOUT */
+.about-card{
+  max-width:880px;margin:0 auto;padding:40px;border-radius:24px;
+  background:linear-gradient(180deg,rgba(96,165,250,.06),rgba(255,255,255,.02));
+  border:1px solid var(--border);text-align:center;
+}
+.about-card p{color:var(--muted);font-size:17px;line-height:1.8;}
+
+/* ADS / SLIDER */
+.slider{
+  position:relative;max-width:640px;margin:0 auto;
+  border-radius:20px;overflow:hidden;
+  background:linear-gradient(135deg,#0b1424,#0f1a2e);
+  border:1px solid var(--border);
+  aspect-ratio:1/1;
+  box-shadow:0 20px 60px -20px rgba(0,0,0,.5);
+}
+.slides{display:flex;height:100%;transition:transform .6s cubic-bezier(.7,0,.3,1);}
+.slides img{
+  width:100%;height:100%;flex-shrink:0;
+  object-fit:contain;cursor:zoom-in;
+  background:#0b1424;
+}
+@media (max-width:600px){
+  .slider{max-width:100%;border-radius:16px;}
+}
+.arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(7,11,20,.7);backdrop-filter:blur(8px);
+  border:1px solid var(--border);color:var(--text);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;transition:.25s;z-index:5;
+}
+.arrow:hover{background:var(--primary);color:#04111f;border-color:var(--primary);}
+.arrow.left{left:14px;}.arrow.right{right:14px;}
+.dots{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:5;
+}
+.dots button{
+  width:8px;height:8px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.3);cursor:pointer;transition:.25s;
+}
+.dots button.active{background:var(--primary);width:24px;border-radius:4px;}
+
+/* LIGHTBOX */
+.lightbox{
+  position:fixed;inset:0;background:rgba(0,0,0,.92);
+  display:none;align-items:center;justify-content:center;z-index:9999;
+  padding:20px;cursor:zoom-out;
+}
+.lightbox img{max-width:95%;max-height:95%;border-radius:12px;}
+
+/* PROJECTS */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;transition:.3s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(96,165,250,.4);box-shadow:var(--shadow);}
+.card-img{aspect-ratio:16/10;overflow:hidden;background:var(--card-2);}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:.5s;}
+.card:hover .card-img img{transform:scale(1.05);}
+.card-body{padding:20px;}
+.card h3{font-size:18px;margin-bottom:6px;}
+.card p{color:var(--muted);font-size:14px;}
+
+/* CONTACT */
+.contact-card{
+  max-width:720px;margin:0 auto;padding:50px 30px;text-align:center;
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(96,165,250,.08),rgba(34,211,238,.05));
+  border:1px solid var(--border);
+}
+.social{display:flex;justify-content:center;gap:14px;margin-top:24px;flex-wrap:wrap;}
+.social a{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.04);border:1px solid var(--border);
+  color:var(--muted);font-size:20px;transition:.25s;
+}
+.social a:hover{color:var(--primary);border-color:var(--primary);transform:translateY(-3px);}
+.whatsapp-btn{
+  display:inline-flex;align-items:center;gap:10px;margin-top:24px;
+  padding:14px 28px;border-radius:12px;
+  background:#25D366;color:#04111f;font-weight:700;
+  transition:.25s;
+}
+.whatsapp-btn:hover{transform:translateY(-2px);box-shadow:0 15px 40px -10px rgba(37,211,102,.5);}
+
+/* FOOTER */
+footer{
+  padding:30px 0;text-align:center;color:var(--muted);font-size:14px;
+  border-top:1px solid var(--border);
+}
+
+/* MOBILE */
+@media(max-width:860px){
+  .menu-btn{display:block;}
+  .nav-links{
+    position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;padding:10px;
+    background:rgba(7,11,20,.95);backdrop-filter:blur(16px);
+    border-bottom:1px solid var(--border);
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:.25s;
+  }
+  .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto;}
+  .nav-links a{padding:14px;border-radius:8px;}
+  .hero-grid{grid-template-columns:1fr;gap:40px;text-align:center;}
+  .hero-text .badge,.cta-row{justify-content:center;}
+  .cta-row{display:flex;justify-content:center;}
+  .hero p{margin-left:auto;margin-right:auto;}
+  .stats{margin-left:auto;margin-right:auto;}
+  .hero-visual img{max-width:300px;}
+  section{padding:60px 0;}
+  .container{padding:0 18px;}
+  .about-card{padding:28px 20px;}
+  .arrow{width:38px;height:38px;font-size:14px;}
+  .arrow.left{left:8px;}.arrow.right{right:8px;}
+}
+
+@media(max-width:480px){
+  .hero{padding:110px 0 40px;}
+  .stats{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .stat{padding:10px 6px;}
+  .stat b{font-size:18px;}
+  .stat span{font-size:11px;}
+  .btn{padding:12px 20px;font-size:14px;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Linky🔗</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#ads">Ads</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu-btn" onclick="document.getElementById('navLinks').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="badge"><span class="dot"></span> Available for new projects</div>
+      <h1>Building <span>Modern</span> Websites that Convert</h1>
+      <p>استوديو متخصص في تصميم وتطوير مواقع احترافية، سريعة، ومتجاوبة بالكامل مع جميع الأجهزة.</p>
+      <div class="cta-row">
+        <a href="#projects" class="btn btn-primary">View Work <i class="fas fa-arrow-right"></i></a>
+        <a href="https://wa.me/201094740400" target="_blank" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>50+</b><span>Projects</span></div>
+        <div class="stat"><b>30+</b><span>Clients</span></div>
+        <div class="stat"><b>5★</b><span>Rating</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="brand.jpg" alt="Linky brand" onerror="this.src='https://images.unsplash.com/photo-1551434678-e076c223a692?w=800';">
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>من نحن</h2>
+    </div>
+    <div class="about-card">
+      <p>نجهز لينكات انيقة ومختلفة خليك مميز واطلب من لينكي دلوقتي وخلي لحظاتك ذكري لا تنسي بي الضغط علي زرار واحد راح تشارك لينكك خلي دعوتك او سيرتك الذاتيه ديجيتال مع لينكي     .</p>
+    </div>
+  </div>
+</section>
+
+<!-- ADS -->
+<section id="ads">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Showcase</div>
+      <h2>Featured Ads</h2>
+      <p>أحدث الحملات الإعلانية والتصاميم</p>
+    </div>
+    <div class="slider">
+      <button class="arrow left" onclick="prevSlide()" aria-label="Previous">&#10094;</button>
+      <div class="slides" id="slides">
+        <img src="ad1.jpg" alt="Linky Ad 1" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad2.jpg" alt="Linki Ad 2" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad3.jpg" alt="Linky Ad 3" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad4.jpg" alt="Linki Ad 4" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad5.jpg" alt="Linky Ad 5" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad6.jpg" alt="Linky Ad 6" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad7.jpg" alt="Linky Ad 7" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad8.jpg" alt="Linky Ad 8" loading="lazy" onclick="openImg(this.src)">
+        <img src="ad9.jpg" alt="Linky Ad 9" loading="lazy" onclick="openImg(this.src)">
+      </div>
+      <button class="arrow right" onclick="nextSlide()" aria-label="Next">&#10095;</button>
+      <div class="dots" id="dots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+  <img id="lightboxImg" alt="">
+</div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Work</div>
+      <h2>Selected Projects</h2>
+      <p>مجموعة من أحدث المشاريع التي قمنا بتنفيذها</p>
+    </div>
+    <div class="projects-grid">
+      <a href="https://linky-linky.github.io/wedding-invitation-1/" target="_blank" rel="noopener" class="card">
+        <div class="card-img"><img src="project1.jpeg" alt="Project 1" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?w=800';"></div>
+        <div class="card-body"><h3>Project 1 <i class="fas fa-arrow-up-right-from-square" style="font-size:13px;opacity:.7;margin-inline-start:6px;"></i></h3><p>Wedding Invitation — دعوة زفاف تفاعلية</p></div>
+      </a>
+      <a href="https://linky-linky.github.io/professional-profile/" target="_blank" rel="noopener" class="card">
+        <div class="card-img"><img src="project2.jpeg" alt="Project 2" onerror="this.src='https://images.unsplash.com/photo-1547658719-da2b51169166?w=800';"></div>
+        <div class="card-body"><h3>Project 2</h3><p>professional-profile</p></div>
+      </a>
+      <a href="https://linky-linky.github.io/wedding-invitation-2/" target="_blank" rel="noopener" class="card">
+        <div class="card-img"><img src="project3.jpeg" alt="Project 3" onerror="this.src='https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800';"></div>
+        <div class="card-body"><h3>Project 3</h3><p>wedding-invitation</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Contact</div>
+      <h2>Let's work together</h2>
+    </div>
+    <div class="contact-card">
+      <p style="color:var(--muted);">جاهز تعمل لينك خاص بيك.. تواصل معنا الآن.</p>
+      <a href="https://wa.me/201094740400" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+      <div class="social">
+        <a href="https://www.instagram.com/linky_lynky?igsh=OTEzZ3hyNHRrN2w=" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1GCDHzbcT3/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@linky42633?_r=1&_t=ZS-968RKRISL1M" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/201094740400" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Linky🔗 — All rights reserved.</footer>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+const dotsBox = document.getElementById("dots");
+
+for(let i=0;i<total;i++){
+  const b=document.createElement("button");
+  b.onclick=()=>{index=i;showSlide();};
+  dotsBox.appendChild(b);
+}
+const dots=dotsBox.children;
+
+function showSlide(){
+  slides.style.transform=`translateX(-${index*100}%)`;
+  for(let i=0;i<total;i++)dots[i].classList.toggle("active",i===index);
+}
+function nextSlide(){index=(index+1)%total;showSlide();}
+function prevSlide(){index=(index-1+total)%total;showSlide();}
+showSlide();
+let auto=setInterval(nextSlide,4500);
+slides.parentElement.addEventListener("mouseenter",()=>clearInterval(auto));
+slides.parentElement.addEventListener("mouseleave",()=>auto=setInterval(nextSlide,4500));
+
+// swipe
+let sx=0;
+slides.addEventListener("touchstart",e=>sx=e.touches[0].clientX);
+slides.addEventListener("touchend",e=>{
+  const dx=e.changedTouches[0].clientX-sx;
+  if(dx>40)prevSlide();else if(dx<-40)nextSlide();
+});
+
+function openImg(src){
+  document.getElementById("lightbox").style.display="flex";
+  document.getElementById("lightboxImg").src=src;
+}
+function closeImg(){document.getElementById("lightbox").style.display="none";}
+
+// close mobile menu on click
+document.querySelectorAll("#navLinks a").forEach(a=>a.onclick=()=>document.getElementById("navLinks").classList.remove("open"));
+</script>
+</body>
+</html>
